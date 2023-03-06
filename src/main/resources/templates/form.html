@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="https://www.thymeleaf.org">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="contenedor">
+      <h1>Contactenos</h1>
+      <form th:action="@{/form}" th:object="${contactar}" method="post">
+        <div>
+          <label for="nombre">Nombre</label>
+          <input type="text" name="nombre" id="nombre" th:field="*{nombre}" />
+
+          <span th:if="${#fields.hasErrors('nombre')}" th:errors="*{nombre}"
+            >Verifique la informacion del nombre...</span>
+        </div>
+        <div>
+          <label for="correo">Correo</label>
+          <input type="text" name="correo" id="correo" th:field="*{correo}" />
+
+          <span th:if="${#fields.hasErrors('correo')}" th:errors="*{correo}"
+            >Verifique la informacion del correo...</span
+          >
+        </div>
+        <div>
+          <label for="mensaje">Mensaje</label>
+          <input
+            type="text"
+            name="mensaje"
+            id="mensaje"
+            th:field="*{mensaje}"
+          />
+          <span th:if="${#fields.hasErrors('mensaje')}" th:errors="*{mensaje}"
+            >Verifique la informacion del mensaje...</span
+          >
+        </div>
+
+        <div>
+          <button type="submit">Enviar Mensaje</button>
+        </div>
+      </form>
+    </div>
+  </body>
+</html>
